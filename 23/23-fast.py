@@ -30,10 +30,8 @@ T = 10000000
 nex = list(range(1, N + 2))
 nex[0] = 0
 for i, num in enumerate(order):
-    if i == len(order) - 1:
-        nex[num] = len(order) + 1
-    else:
-        nex[num] = order[i + 1]
+    nex[order[i - 1]] = num
+nex[order[-1]] = len(order) + 1
 nex[-1] = order[0]
 
 curr = order[0]
