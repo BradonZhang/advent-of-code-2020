@@ -1,7 +1,3 @@
-from datetime import datetime
-
-t0 = datetime.now()
-
 with open('23.txt') as f:
     order = [int(x) for x in f.read().strip()]
 
@@ -51,17 +47,11 @@ while curr != nodes[1]:
     curr = curr.next
 print(res)
 
-t1 = datetime.now()
-print(t1 - t0, 's elapsed')
-
 order2 = list(range(1, 1000001))
 order2[:len(order)] = order
 
 LOW = min(order2)
 HIGH = max(order2)
-
-t2 = datetime.now()
-print(t2 - t0, 's elapsed')
 
 nodes = {}
 
@@ -76,14 +66,8 @@ for x in order2:
     prev = nodes[x]
 prev.next = root
 
-t3 = datetime.now()
-print(t3 - t0, 's elapsed')
-
 curr = root
 for i in range(10000000):
     curr = curr.pick_up()
 
 print(nodes[1].next.val * nodes[1].next.next.val)
-
-t4 = datetime.now()
-print(t4 - t0, 's elapsed')
